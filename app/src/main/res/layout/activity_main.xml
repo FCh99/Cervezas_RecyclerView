@@ -11,24 +11,49 @@
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+
         <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="42dp"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/nombreEditText" android:hint="Nombre"
+                android:id="@+id/idEditText"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="16dp" android:textStyle="bold"
-                android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/editText"/>
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="16dp"
+                android:hint="id  "
+                android:textStyle="bold"
+                android:layout_marginTop="32dp"/>
+
+
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/precioEditText" android:hint="Precio"
+                android:id="@+id/nombreEditText"
+                android:hint="Nombre"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/idEditText"/>
+
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/precioEditText"
+                android:hint="Precio"
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toBottomOf="@+id/nombreEditText" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="16dp" android:textStyle="bold"/>
+                android:layout_marginStart="16dp"
+                android:textStyle="bold"/>
+
+
         <TextView
                 android:text="Fotografía"
                 android:layout_width="wrap_content"
@@ -36,19 +61,26 @@
                 android:layout_marginTop="24dp"
                 app:layout_constraintTop_toBottomOf="@+id/precioEditText" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp" android:textStyle="bold"/>
+
+
         <Spinner
                 android:layout_width="218dp"
                 android:layout_height="23dp" android:id="@+id/spinner2"
                 android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"/>
+
         <TextView
                 android:text="Fecha de fabricación"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textView3"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-                android:layout_marginTop="52dp" app:layout_constraintTop_toBottomOf="@+id/spinner2"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                app:layout_constraintTop_toBottomOf="@+id/spinner2"
                 android:textStyle="bold"/>
+
         <CalendarView
                 android:layout_width="300dp"
                 android:layout_height="300dp"
@@ -133,15 +165,7 @@
                     android:layout_marginTop="24dp"
             />
         </LinearLayout>
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/editText"
-                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="32dp"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-                android:hint="id  " android:textStyle="bold"/>
+
     </android.support.constraint.ConstraintLayout>
 
 

@@ -4,39 +4,85 @@ import android.content.Context
 import android.content.Context.*
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.IntegerRes
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.SpinnerAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 /*
-Coronita
-https://abarrotesdonacuca.com/303-large_default/cerveza-corona-355ml-grupo-modelo.jpg
-Mahou
-https://www.comprar-bebidas.com/media/catalog/product/cache/5/image/1800x/040ec09b1e35df139433887a97daa66f/2/4/2441.jpg
-San Miguel
-https://www.lomejordelmercado.com/4279-tm_thickbox_default/botellin-de-cerveza-san-miguel.jpg
-Woll-Damn
-https://www.comprar-bebidas.com/media/catalog/product/cache/5/image/767x1021/9df78eab33525d08d6e5fb8d27136e95/3/1/3107.jpg
-Cruzcampo
-https://www.comprar-bebidas.com/media/catalog/product/cache/5/image/767x1021/9df78eab33525d08d6e5fb8d27136e95/3/2/3271.jpg
-Estrella de Galicia
-https://www.comprar-bebidas.com/media/catalog/product/cache/5/image/767x1021/9df78eab33525d08d6e5fb8d27136e95/2/4/2448.jpg
+Android Kotlin app: el usuaro da de alta sus cervezas favoritas en una Activity, luego se muestran en un RecyclerView. Uso de Picasso, radioButton y CheckBox
  */
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+
 
     var cervezas = ArrayList<Cerveza>()
+    var spinner: Spinner? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
+        spinner = findViewById(R.id.spinner2)
+        if (spinner != null) {
+            spinner!!.setOnItemSelectedListener(this)
 
+            val aa = ArrayAdapter.createFromResource(this@MainActivity, R.array.cervezasNombres, android.R.layout.simple_spinner_item )
+            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner!!.adapter = aa
+        }
+
+
+
+        button3.setOnClickListener {
+            // recoger variables de la Actividad
+
+            var id = idEditText.text.toString().toInt()
+            var precio = precioEditText.text.toString().toDouble()
+            var nombre = nombreEditText.text.toString()
+            var imagen = spinner!!.getSelectedItem().toString()
+
+            var fechaDeFabricacion = "14/01/2019"
+            var alcohol = "No"
+            var envase = "tercio"
+
+            var cerveza = Cerveza(id, precio, nombre, imagen, fechaDeFabricacion, alcohol, envase)
+
+            cervezas.add(cerveza)
+
+            println("-----------")
+            println(cervezas)
+
+
+        }
+
+        }
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+
+        println("Nothing selected")
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+        println("Selected")
 
     }
+
+
 }
+
+
+
 
 
 

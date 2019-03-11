@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Cervezas</string>
+
+    <string-array name="cervezasNombres">
+        <item>Coronita</item>
+        <item>Mahou</item>
+        <item>San Miguel</item>
+        <item>Woll-Damn</item>
+        <item>Cruzcampo</item>
+        <item>Estrella de Galicia</item>
+
+    </string-array>
 </resources>
+
+
