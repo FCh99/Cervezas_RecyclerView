@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/nombreEditText" android:hint="Nombre"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:textStyle="bold"
+                android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/editText"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/precioEditText" android:hint="Precio"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/nombreEditText" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:textStyle="bold"/>
+        <TextView
+                android:text="Fotografía"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView2"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/precioEditText" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:textStyle="bold"/>
+        <Spinner
+                android:layout_width="218dp"
+                android:layout_height="23dp" android:id="@+id/spinner2"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"/>
+        <TextView
+                android:text="Fecha de fabricación"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp" app:layout_constraintTop_toBottomOf="@+id/spinner2"
+                android:textStyle="bold"/>
+        <CalendarView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:id="@+id/calendarView"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="40dp"
+
+        />
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:background="@android:color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="19dp"
+                app:layout_constraintTop_toBottomOf="@+id/calendarView">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+                <TextView
+                        android:text="Alcohol SI / NO"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/textView4"
+                        android:textStyle="bold"/>
+                <CheckBox
+                        android:id="@+id/checkBoxAlcohol"
+                        android:layout_marginLeft="50dp"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/white">
+
+                <TextView
+                        android:text="Envase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:id="@+id/textView5"
+                        android:textStyle="bold"/>
+
+                <RadioGroup android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/radioGroup"/>
+
+                    <RadioButton android:layout_width="100dp"
+                                 android:layout_height="wrap_content"
+                                 android:text="Lata"
+                                 android:id="@+id/radioButtonLata"/>
+
+                    <RadioButton android:layout_width="100dp"
+                                 android:layout_height="wrap_content"
+                                 android:text="Botellin"
+                                 android:id="@+id/radioButtonBotellin"/>
+
+                    <RadioButton android:layout_width="100dp"
+                                 android:layout_height="wrap_content"
+                                 android:text="Tercio"
+                                 android:id="@+id/radioButtonTercio"/>
+            </LinearLayout>
+
+            <Button
+                    android:text="ADD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button3"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="24dp"
+            />
+        </LinearLayout>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:hint="id  " android:textStyle="bold"/>
+    </android.support.constraint.ConstraintLayout>
+
+
+</ScrollView>
+
