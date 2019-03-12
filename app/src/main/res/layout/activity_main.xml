@@ -144,16 +144,19 @@
                     <RadioButton android:layout_width="100dp"
                                  android:layout_height="wrap_content"
                                  android:text="Lata"
+                                 android:onClick="radioButtonClicked"
                                  android:id="@+id/radioButtonLata"/>
 
                     <RadioButton android:layout_width="100dp"
                                  android:layout_height="wrap_content"
                                  android:text="Botellin"
+                                 android:onClick="radioButtonClicked"
                                  android:id="@+id/radioButtonBotellin"/>
 
                     <RadioButton android:layout_width="100dp"
                                  android:layout_height="wrap_content"
                                  android:text="Tercio"
+                                 android:onClick="radioButtonClicked"
                                  android:id="@+id/radioButtonTercio"/>
             </LinearLayout>
 
