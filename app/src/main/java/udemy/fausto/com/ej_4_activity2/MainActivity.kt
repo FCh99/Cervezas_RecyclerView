@@ -7,10 +7,7 @@ import android.os.Bundle
 import android.support.annotation.IntegerRes
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.SpinnerAdapter
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -25,6 +22,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     var cervezas = ArrayList<Cerveza>()
     var spinner: Spinner? = null
+    var checkBox:CheckBox? = null
+    var radioGroup:RadioGroup? = null
 
 
 
@@ -32,8 +31,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        checkBox = this.checkBoxAlcohol
+        radioGroup = this.radioGroup1
+        spinner = this.spinner2
 
-        spinner = findViewById(R.id.spinner2)
         if (spinner != null) {
             spinner!!.setOnItemSelectedListener(this)
 
@@ -52,9 +53,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             var nombre = nombreEditText.text.toString()
             var imagen = spinner!!.getSelectedItem().toString()
 
-            var fechaDeFabricacion = "14/01/2019"
-            var alcohol = "No"
-            var envase = "tercio"
+            var fechaDeFabricacion = editTextDate.text.toString()
+            var alcohol = checkAlcohol(checkBox!!)
+            var envase = typeOfEnvase(radioGroup!!) // TODO Problem ¡¡
 
             var cerveza = Cerveza(id, precio, nombre, imagen, fechaDeFabricacion, alcohol, envase)
 
@@ -77,6 +78,27 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         println("Selected")
 
     }
+
+    fun checkAlcohol(mycheck: CheckBox): String {
+        var alcoholSi = ""
+        alcoholSi = mycheck.isChecked.toString()
+        return alcoholSi
+    }
+
+    fun typeOfEnvase(radioGroup: RadioGroup): String {
+        var idChecked = radioGroup.getCheckedRadioButtonId()
+
+        var tipo = when(idChecked) {
+            radioButtonLata.id -> "Lata"
+            radioButtonBotellin.id -> "Botellin"
+            radioButtonTercio.id -> "Tercio"
+            else -> "Error"
+        }
+
+        return tipo
+    }
+
+
 
 
 }
