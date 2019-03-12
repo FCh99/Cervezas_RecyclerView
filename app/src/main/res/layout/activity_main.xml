@@ -164,10 +164,21 @@
                     android:text="ADD"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/button3"
+                    android:id="@+id/buttonAdd"
                     android:layout_gravity="center"
                     android:layout_marginTop="24dp"
             />
+
+            <Button
+                    android:text="LIST"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonList"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+            />
+
+
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

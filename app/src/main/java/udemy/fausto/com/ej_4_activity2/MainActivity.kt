@@ -1,5 +1,6 @@
 package udemy.fausto.com.ej_4_activity2
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     var selectedEnvase = ""
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,8 +40,19 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
 
 
-        button3.setOnClickListener {
-            inicializarArrayCervezas()
+        buttonAdd.setOnClickListener {
+            addCervezaAlArray()
+
+
+        }
+
+        buttonList.setOnClickListener {
+            var intent = Intent(this, ListActivity::class.java)
+            var bundle = Bundle()
+            bundle.putParcelableArrayList("cervezas", cervezas)
+            intent.putExtras(bundle)
+            startActivity(intent)
+
 
 
         }
@@ -50,7 +64,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     // -------------   FUNCTIONS -----------------------
 
     // recoge los datos del formulario y crea un array de Cervezas
-    fun inicializarArrayCervezas () {
+    fun addCervezaAlArray () {
         var id: Int = 0
         if (idEditText.text.isNotEmpty()) id = idEditText.text.toString().toInt()
 
@@ -75,8 +89,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         var cerveza = Cerveza(id, precio, nombre, imagen, fechaDeFabricacion, alcohol, envase)
         cervezas.add(cerveza)
 
-        println("-----------")
-        println(cervezas)
+        //println("-----------")
+        //println(cervezas)
     }
 
 
