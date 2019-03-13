@@ -1,10 +1,12 @@
-package udemy.fausto.com.ej_4_activity2
+package udemy.fausto.com.ej_4_activity2.Activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_list.*
+import udemy.fausto.com.ej_4_activity2.Cerveza
+import udemy.fausto.com.ej_4_activity2.CervezaAdapter
+import udemy.fausto.com.ej_4_activity2.R
 
 class ListActivity : AppCompatActivity() {
 

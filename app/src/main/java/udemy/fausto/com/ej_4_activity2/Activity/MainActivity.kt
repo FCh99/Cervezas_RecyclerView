@@ -1,4 +1,4 @@
-package udemy.fausto.com.ej_4_activity2
+package udemy.fausto.com.ej_4_activity2.Activity
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
+import udemy.fausto.com.ej_4_activity2.Cerveza
+import udemy.fausto.com.ej_4_activity2.R
 import kotlin.collections.ArrayList
 
 /*
@@ -33,7 +35,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         if (spinner != null) {
             spinner!!.setOnItemSelectedListener(this)
 
-            val aa = ArrayAdapter.createFromResource(this@MainActivity, R.array.cervezasNombres, android.R.layout.simple_spinner_item )
+            val aa = ArrayAdapter.createFromResource(this@MainActivity,
+                R.array.cervezasNombres, android.R.layout.simple_spinner_item )
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner!!.adapter = aa
         }
@@ -86,30 +89,30 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         var envase = ""
         if (selectedEnvase.isNotEmpty()) envase = selectedEnvase
 
-        var cerveza = Cerveza(id, precio, nombre, imagen, fechaDeFabricacion, alcohol, envase)
+        var cerveza =
+            Cerveza(id, precio, nombre, imagen, fechaDeFabricacion, alcohol, envase)
         cervezas.add(cerveza)
 
-        //println("-----------")
-        //println(cervezas)
+
     }
 
 
 
     fun checkAlcohol(mycheck: CheckBox): String {
-        var alcoholSi = ""
-        alcoholSi = mycheck.isChecked.toString()
-        return alcoholSi
+        return if (mycheck.isChecked) "Si" else "No"
     }
+
+    // TODO: hacer excluyentes los botones
 
 
     // view es el botón clickado de los varios que tienen este onClick
     fun radioButtonClicked(view: View) {
         var clickedRB = view as RadioButton
-        when(clickedRB) {
-            radioButtonLata -> selectedEnvase = "Lata"
-            radioButtonTercio -> selectedEnvase = "Tercio"
-            radioButtonBotellin -> selectedEnvase = "Botellin"
-            else -> selectedEnvase = "Error al elegir el envase"
+        selectedEnvase = when(clickedRB) {
+            radioButtonLata -> "Lata"
+            radioButtonTercio -> "Tercio"
+            radioButtonBotellin -> "Botellin"
+            else -> "Error al elegir el envase"
         }
 
 
