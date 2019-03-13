@@ -1,8 +1,8 @@
-package udemy.fausto.com.ej_4_activity2.Activity
+package udemy.fausto.com.Cervezas_RecyclerView.Activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import udemy.fausto.com.ej_4_activity2.R
+import udemy.fausto.com.Cervezas_RecyclerView.R
 
 class DetailActivity : AppCompatActivity() {
 

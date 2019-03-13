@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "udemy.fausto.com.ej_4_activity2"
+        applicationId "udemy.fausto.com.Cervezas_RecyclerView"
         minSdkVersion 24
         targetSdkVersion 28
         versionCode 1

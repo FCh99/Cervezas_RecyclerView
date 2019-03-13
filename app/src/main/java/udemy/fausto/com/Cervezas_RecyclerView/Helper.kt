@@ -1,4 +1,4 @@
-package udemy.fausto.com.ej_4_activity2
+package udemy.fausto.com.Cervezas_RecyclerView
 
 import android.content.Context
 import android.view.View

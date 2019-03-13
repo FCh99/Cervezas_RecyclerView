@@ -1,4 +1,4 @@
-package udemy.fausto.com.ej_4_activity2.Activity
+package udemy.fausto.com.Cervezas_RecyclerView.Activity
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
-import udemy.fausto.com.ej_4_activity2.Cerveza
-import udemy.fausto.com.ej_4_activity2.R
+import udemy.fausto.com.Cervezas_RecyclerView.Cerveza
+import udemy.fausto.com.Cervezas_RecyclerView.R
 import kotlin.collections.ArrayList
 
 /*

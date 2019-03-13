@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="udemy.fausto.com.ej_4_activity2">
+          package="udemy.fausto.com.Cervezas_RecyclerView">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -11,11 +11,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".Activity.DetailActivity">
+        <activity android:name="udemy.fausto.com.Cervezas_RecyclerView.Activity.DetailActivity">
         </activity>
-        <activity android:name=".Activity.ListActivity">
+        <activity android:name="udemy.fausto.com.Cervezas_RecyclerView.Activity.ListActivity">
         </activity>
-        <activity android:name=".Activity.MainActivity">
+        <activity android:name="udemy.fausto.com.Cervezas_RecyclerView.Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
