@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 import udemy.fausto.com.Cervezas_RecyclerView.Cerveza
+import udemy.fausto.com.Cervezas_RecyclerView.DataService
 import udemy.fausto.com.Cervezas_RecyclerView.R
 import kotlin.collections.ArrayList
 
@@ -44,7 +45,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
 
         buttonAdd.setOnClickListener {
-            addCervezaAlArray()
+            //addCervezaAlArray()
+
+            // traer cervezas de DataService
+            getCervezas2()
 
 
         }
@@ -65,6 +69,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
 
     // -------------   FUNCTIONS -----------------------
+
+    fun getCervezas2() {
+        this.cervezas = DataService().cerveza2
+    }
+
 
     // recoge los datos del formulario y crea un array de Cervezas
     fun addCervezaAlArray () {

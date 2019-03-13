@@ -1,13 +1,18 @@
 package udemy.fausto.com.Cervezas_RecyclerView
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_list.view.*
 import kotlinx.android.synthetic.main.recycler_card_row.view.*
+import udemy.fausto.com.Cervezas_RecyclerView.Activity.DetailActivity
 
 class CervezaAdapter (val context: Context, var cervezas: ArrayList<Cerveza>) : RecyclerView.Adapter<CervezaAdapter.CervezaHolder>() {
 
@@ -39,6 +44,17 @@ class CervezaAdapter (val context: Context, var cervezas: ArrayList<Cerveza>) : 
         override fun onClick(v: View) {
             Log.d("RecyclerView", "CLICK!")
             // Intent a Activity detalle
+
+            var bundle = Bundle()
+            bundle.putString("nombre", cerveza!!.nombre)
+            bundle.putString("precio", cerveza!!.precio.toString())
+            bundle.putString("fecha", cerveza!!.fechaFabricacion)
+            bundle.putString("imagen", cerveza!!.imagen)
+
+            var intent = Intent(v.context, DetailActivity::class.java)
+            startActivity(v.context, intent, bundle)
+
+
         }
 
         fun bindCerveza(cerveza: Cerveza) {
