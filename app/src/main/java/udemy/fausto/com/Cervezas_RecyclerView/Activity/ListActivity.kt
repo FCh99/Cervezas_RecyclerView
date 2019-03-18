@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_list.*
 import udemy.fausto.com.Cervezas_RecyclerView.Cerveza
 import udemy.fausto.com.Cervezas_RecyclerView.CervezaAdapter
+import udemy.fausto.com.Cervezas_RecyclerView.DataService
 import udemy.fausto.com.Cervezas_RecyclerView.R
 
 class ListActivity : AppCompatActivity() {
@@ -19,10 +20,14 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        misCervezas = DataService().cerveza2
+
+        /*
         var bundle = intent.extras
         if (bundle != null) {
             misCervezas = bundle.getParcelableArrayList("cervezas")
         }
+        */
 
         println("---------")
         println(misCervezas)

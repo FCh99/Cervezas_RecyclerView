@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_add.*
 import udemy.fausto.com.Cervezas_RecyclerView.Cerveza
 import udemy.fausto.com.Cervezas_RecyclerView.DataService
 import udemy.fausto.com.Cervezas_RecyclerView.R
@@ -16,7 +16,7 @@ Android Kotlin app: el usuaro da de alta sus cervezas favoritas en una Activity,
  */
 
 
-class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class AddActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     var cervezas = ArrayList<Cerveza>()
     var spinner: Spinner? = null
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_add)
 
         checkBox = this.checkBoxAlcohol
         spinner = this.spinner2
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         if (spinner != null) {
             spinner!!.setOnItemSelectedListener(this)
 
-            val aa = ArrayAdapter.createFromResource(this@MainActivity,
+            val aa = ArrayAdapter.createFromResource(this@AddActivity,
                 R.array.cervezasNombres, android.R.layout.simple_spinner_item )
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner!!.adapter = aa
