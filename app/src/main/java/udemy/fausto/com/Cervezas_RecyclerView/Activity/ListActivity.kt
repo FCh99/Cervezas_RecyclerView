@@ -23,6 +23,7 @@ class ListActivity : AppCompatActivity() {
         misCervezas = DataService().cerveza2
 
         /*
+        --------------
         var bundle = intent.extras
         if (bundle != null) {
             misCervezas = bundle.getParcelableArrayList("cervezas")
