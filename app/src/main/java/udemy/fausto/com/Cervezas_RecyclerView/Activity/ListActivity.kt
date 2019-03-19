@@ -1,5 +1,6 @@
 package udemy.fausto.com.Cervezas_RecyclerView.Activity
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,7 @@ class ListActivity : AppCompatActivity() {
 
     var misCervezas = ArrayList<Cerveza>()
     private lateinit var adapter: CervezaAdapter
+
 
 
 
@@ -57,6 +59,8 @@ class ListActivity : AppCompatActivity() {
         recyclerView.layoutManager = linearLayoutManager
 
 
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -73,6 +77,8 @@ class ListActivity : AppCompatActivity() {
         }
         if (id == R.id.add) {
             Toast.makeText(this, "Add", Toast.LENGTH_LONG).show()
+            var intent = Intent(this, AddActivity::class.java)
+            startActivity(intent)
             return true
         } else {
             Toast.makeText(this, "Error ????", Toast.LENGTH_LONG).show()
