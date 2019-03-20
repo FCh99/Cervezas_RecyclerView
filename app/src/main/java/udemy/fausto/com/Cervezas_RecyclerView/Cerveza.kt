@@ -4,6 +4,11 @@ package udemy.fausto.com.Cervezas_RecyclerView
 import android.os.Parcel
 import android.os.Parcelable
 
+class CervezaClassXX (var cervezaId: Int, val nombre:String, val imagen: String)
+
+
+
+
 data class Cerveza (val id: Int = 1, val precio: Double = 0.00, val nombre: String = "", val imagen: String = "", val fechaFabricacion: String = "1/1/1111", val alcohol: String = "No", val envase: String = "Ninguno" ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),

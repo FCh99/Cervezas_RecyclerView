@@ -16,39 +16,34 @@ class ListActivity : AppCompatActivity() {
     private lateinit var adapter: CervezaAdapter
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
-        // Toolbar
+        // Toolbar, va con Menu y Actions
         setSupportActionBar(toolbar)
         if (getSupportActionBar() != null) {
             getSupportActionBar()
         }
 
-        // meter en la base de datos las cervezas y chequear que están metidas
 
 
-
-
-
-
-
-        // Data cervezas del arraylist DataService
         misCervezas = DataService().cervezas2
 
-        //println("---------")
-        //println(misCervezas)
+        // A la base de datos
+        var db = DatabaseHandler(this)
+        var xx = db.addCervezas(misCervezas)
 
 
+        // leer de la base de datos y enchufar al adapter
+
+        var cervList = db.getCervezas()
 
 
-        // adapter y LinearLayoutManager
+        adapter = CervezaAdapter(this, cervList)
+        recyclerView.adapter = this.adapter
 
-        adapter = CervezaAdapter(this, misCervezas)
-        recyclerView.adapter = adapter
+
 
         var linearLayoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = linearLayoutManager
@@ -59,48 +54,20 @@ class ListActivity : AppCompatActivity() {
     }
     // -------------   FUNCTIONS ---------------
 
-    //SELECT ID, Titulo, Descripcion FROM Notas Where (Titulo like ?) ORDER BY Titulo
-
-    fun cargarQuery(nombre: String) {
-        var baseDatos = DBManager(this)
-        val columnas = arrayOf(DBManager.columnaID, DBManager.columnaPrecio, DBManager.columnaNombre, DBManager.columnaImagen, DBManager.columnaFecha, DBManager.columnaAlcohol, DBManager.columnaEnvase)
-        val selectionArgs = arrayOf(nombre)
-
-        val cursor = baseDatos.query(columnas, "Nombre like ?", selectionArgs, DBManager.dbNombre)
 
 
-        misCervezas.clear()
-
-        if (cursor.moveToFirst()) {
-            do {
-                val id = cursor.getInt(cursor.getColumnIndex(DBManager.columnaID))
-                val precio = cursor.getDouble(cursor.getColumnIndex(DBManager.columnaPrecio))
-                val nombre = cursor.getString(cursor.getColumnIndex(DBManager.columnaNombre))
-                val imagen  = cursor.getString(cursor.getColumnIndex(DBManager.columnaImagen))
-                val fecha  = cursor.getString(cursor.getColumnIndex(DBManager.columnaFecha))
-                val alcohol  = cursor.getString(cursor.getColumnIndex(DBManager.columnaAlcohol))
-                val envase  = cursor.getString(cursor.getColumnIndex(DBManager.columnaEnvase))
-
-
-                misCervezas.add(Cerveza(id, precio, nombre, imagen, fecha, alcohol, envase))
-
-            } while (cursor.moveToNext())
-        }
-
-        adapter = CervezaAdapter(this, misCervezas)
-        recyclerView.adapter = adapter
-    }
-
-
-
-
+    // Toolbar MENU
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
+
+    // Toolbar MENU
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         val id = item!!.getItemId()
+
+
 
         if (id == R.id.list) {
             Toast.makeText(this, "List", Toast.LENGTH_LONG).show()
