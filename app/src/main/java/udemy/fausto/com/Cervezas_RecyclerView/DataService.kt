@@ -2,7 +2,7 @@ package udemy.fausto.com.Cervezas_RecyclerView
 
 class DataService {
 
-    var cerveza2 = arrayListOf<Cerveza>(
+    var cervezas2 = arrayListOf<Cerveza>(
         Cerveza(1, 2.00, "Mahou", "Mahou", "1/1/2004", "Si", "Tercio"),
         Cerveza(2, 3.00, "Coronita", "Coronita", "1/1/2005", "No", "Botellin"),
         Cerveza(3, 4.00, "Estrella de Galicia", "Estrella de Galicia", "1/1/2006", "Si", "Lata"),

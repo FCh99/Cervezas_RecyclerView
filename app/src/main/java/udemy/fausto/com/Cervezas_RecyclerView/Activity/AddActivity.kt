@@ -71,7 +71,7 @@ class AddActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     // -------------   FUNCTIONS -----------------------
 
     fun getCervezas2() {
-        this.cervezas = DataService().cerveza2
+        this.cervezas = DataService().cervezas2
     }
 
 
