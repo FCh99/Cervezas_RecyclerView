@@ -23,10 +23,10 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,
     override fun onCreate(db: SQLiteDatabase?) {
         // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         //creating table with fields
-        val CREATE_CONTACTS_TABLE = ("CREATE TABLE " + TABLE + "("
-                + COL_ID + " INTEGER PRIMARY KEY," + COL_NAME + " TEXT,"
+        val CREATE_CERVEZA_TABLE = ("CREATE TABLE " + TABLE + "("
+                + COL_ID + " INTEGER PRIMARY KEY UNIQUE," + COL_NAME + " TEXT,"
                 + COL_IMAGE + " TEXT" + ")")
-        db?.execSQL(CREATE_CONTACTS_TABLE)
+        db?.execSQL(CREATE_CERVEZA_TABLE)
     }
 
 

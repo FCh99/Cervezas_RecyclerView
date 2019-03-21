@@ -20,31 +20,33 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
-        // Toolbar, va con Menu y Actions
+        // Toolbar, va con Menu (Add cerveza) y Actions
         setSupportActionBar(toolbar)
         if (getSupportActionBar() != null) {
             getSupportActionBar()
         }
 
+        // recoger el array de añadidos en Add y juntarlo con cervezasInicial
 
 
-        misCervezas = DataService().cervezas2
 
-        // A la base de datos
+        // coger datos del arrayInicial
+        misCervezas = DataService().cervezasInicial
+
+        // Guardar array en  la base de datos
         var db = DatabaseHandler(this)
-        var xx = db.addCervezas(misCervezas)
+        var bool = db.addCervezas(misCervezas)
 
 
-        // leer de la base de datos y enchufar al adapter
-
+        // recuperar los datos de la base de datos
         var cervList = db.getCervezas()
 
-
+        // conectar con al adapter
         adapter = CervezaAdapter(this, cervList)
         recyclerView.adapter = this.adapter
 
 
-
+        // LinearLayoutMgr
         var linearLayoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = linearLayoutManager
 
@@ -68,7 +70,7 @@ class ListActivity : AppCompatActivity() {
         val id = item!!.getItemId()
 
 
-
+        // TODO list puede sobrar
         if (id == R.id.list) {
             Toast.makeText(this, "List", Toast.LENGTH_LONG).show()
             return true

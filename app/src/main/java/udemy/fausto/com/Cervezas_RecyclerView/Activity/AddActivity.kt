@@ -8,17 +8,22 @@ import android.widget.*
 import kotlinx.android.synthetic.main.activity_add.*
 import udemy.fausto.com.Cervezas_RecyclerView.Cerveza
 import udemy.fausto.com.Cervezas_RecyclerView.DataService
+import udemy.fausto.com.Cervezas_RecyclerView.DatabaseHandler
 import udemy.fausto.com.Cervezas_RecyclerView.R
 import kotlin.collections.ArrayList
 
 /*
-Android Kotlin app: el usuaro da de alta sus cervezas favoritas en una Activity, luego se muestran en un RecyclerView. Uso de Picasso, radioButton y CheckBox
+Android Kotlin app: el usuaro da de alta sus cervezasAdd favoritas en una Activity, luego se muestran en un RecyclerView. Uso de Picasso, radioButton y CheckBox
  */
 
 
 class AddActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    var cervezas = ArrayList<Cerveza>()
+    // las que entren aqui hay que llevarlas a la base de datos
+    var cervezasAdd = ArrayList<Cerveza>()
+
+
+
     var spinner: Spinner? = null
     var checkBox:CheckBox? = null
 
@@ -30,6 +35,8 @@ class AddActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
 
+
+        // ---------- UI ----------
         checkBox = this.checkBoxAlcohol
         spinner = this.spinner2
 
@@ -42,25 +49,24 @@ class AddActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             spinner!!.adapter = aa
         }
 
+        // --------------- BUTTONS ------------------
 
-
+        // buttonAdd > añadir ese item al Array  OK
         buttonAdd.setOnClickListener {
-            //addCervezaAlArray()
-
-            // traer cervezas de DataService
-            getCervezas2()
-
+            addCervezaAlArray()
+            println(cervezasAdd)
 
         }
 
+        // TODO buttonList > 1. añadir array a Base de datos y 2. ir a ListActivity
         buttonList.setOnClickListener {
+
+            var db = DatabaseHandler(this)
+            var bool: Boolean = db.addCervezas(cervezasAdd)
+            println("---------Add ----->")
+            println(bool)
             var intent = Intent(this, ListActivity::class.java)
-            var bundle = Bundle()
-            bundle.putParcelableArrayList("cervezas", cervezas)
-            intent.putExtras(bundle)
             startActivity(intent)
-
-
 
         }
 
@@ -71,7 +77,7 @@ class AddActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     // -------------   FUNCTIONS -----------------------
 
     fun getCervezas2() {
-        this.cervezas = DataService().cervezas2
+        this.cervezasAdd = DataService().cervezasInicial
     }
 
 
@@ -100,7 +106,7 @@ class AddActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         var cerveza =
             Cerveza(id, precio, nombre, imagen, fechaDeFabricacion, alcohol, envase)
-        cervezas.add(cerveza)
+        cervezasAdd.add(cerveza)
 
 
     }
