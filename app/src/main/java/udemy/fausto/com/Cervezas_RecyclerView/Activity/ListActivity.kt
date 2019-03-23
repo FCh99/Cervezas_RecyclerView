@@ -71,11 +71,16 @@ class ListActivity : AppCompatActivity() {
 
 
         // TODO list puede sobrar
+        /*
         if (id == R.id.list) {
+
             Toast.makeText(this, "List", Toast.LENGTH_LONG).show()
             return true
         }
+
+        */
         if (id == R.id.add) {
+
             Toast.makeText(this, "Add", Toast.LENGTH_LONG).show()
             var intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
