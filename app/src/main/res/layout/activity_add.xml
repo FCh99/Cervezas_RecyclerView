@@ -12,6 +12,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+        <android.support.v7.widget.Toolbar
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:minHeight="?attr/actionBarSize"
+                android:elevation="4dp"
+                android:id="@+id/toolbarAdd"
+                android:background="#bfd1ef"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0">
+        </android.support.v7.widget.Toolbar>
+
 
         <EditText
                 android:layout_width="wrap_content"
@@ -19,7 +31,7 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/idEditText"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/toolbarAdd"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="16dp"
                 android:hint="id  "
@@ -162,23 +174,34 @@
                 </RadioGroup>
             </LinearLayout>
 
-            <Button
-                    android:text="ADD"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonAdd"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="24dp"
-            />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                          android:layout_marginTop="20dp"
+                android:weightSum="2">
 
-            <Button
-                    android:text="LIST"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonList"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="8dp"
-            />
+                <Button
+                        android:text="ADD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/buttonAdd"
+                        android:layout_weight="1"
+
+                />
+
+                <Button
+                        android:text="LIST"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/buttonList"
+                       android:layout_weight="1"
+
+                />
+
+
+
+            </LinearLayout>
+
+
 
 
         </LinearLayout>
